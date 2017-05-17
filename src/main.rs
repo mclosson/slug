@@ -22,3 +22,21 @@ fn main() {
     let slug = slug_issue(&args[1], &args[2]);
     println!("{}", slug);
 }
+
+#[cfg(test)]
+mod tests {
+
+    use ::*;
+
+    #[test]
+    fn slugs_number_and_name() {
+        let number = "1";
+        let name = "Sender Email Name should be same as App Name";
+        let expected = "1-sender-email-name-should-be-same-as-app-name";
+
+        let actual = slug_issue(number, name);
+
+        assert_eq!(expected, actual);
+    }
+
+}
